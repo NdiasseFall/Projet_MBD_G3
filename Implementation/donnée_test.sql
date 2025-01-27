@@ -37,5 +37,5 @@ INSERT INTO Taxe (Num_taxe, Date_T, Montant) VALUES
 -- Insérer des données dans la table Prêt
 INSERT INTO Prets (Num_Prets, Montant, Taux, Duree, Montant_mens, Num_Rem, NumClient, Num_taxe, status) VALUES
 (2001, 5000.00, 5.0, 24, 220.00, 3001, 1, 4001, 'actif'),
-(2002, 12000.00, 4.5, 36, 345.00, 3002, 2, 4002, 'révisé'),
+(2002, 12000.00, 4.5, 36, 345.00, 3002, 2, 4002, 'refusé'),
 (2003, 7500.00, 6.0, 18, 450.00, 3003, 3, 4003, 'actif');

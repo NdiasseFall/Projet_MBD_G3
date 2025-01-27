@@ -30,19 +30,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     </head>
     <body>
-        <div class="container " id="enregistrement-form">
+        <div class="container mt-5" id="enregistrement-form-client">
 
             <?php require_once(__DIR__ . '/header.php');?>
 
-            <div id="error-message" class="alert alert-danger d-none " role="alert">
+            <div id="error-message" class="alert alert-danger d-none mt-5 " role="alert">
                 <p>Une erreur s'est produite lors de l'enregistrement</p>
             </div>
 
-            <div id="success-message" class="alert alert-success d-none" role="alert">
+            <div id="success-message" class="alert alert-success d-none mt-5 " role="alert">
                 <p>enregistré avec succès !</p>
             </div>
-
-            <div class="card mt-5">
+            <h1 class="mt-5">Enregistré un client</h1>
+            <div class="card mt-5 ">
                 <form  class="row g-3 m-3" method="post">
                     <div class="col-md-6">
                         <label for="inputNom" class="form-label">Nom</label>
@@ -78,12 +78,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </form>
             </div>
         </div>
-        <script src="script/script.js"></script>
+    
         <script src="script/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
        <script>
             $(document).ready(function() {
-                $('#enregistrement-form').submit(function(event) {
+                $('#enregistrement-form-client').submit(function(event) {
                    
                     const nom = $("#inputNom").val();
                     const prenom = $("#inputPrenom").val ();
