@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Prets(
         Taux           Double ,
         Duree          Int ,
         Montant_mens   Double ,
-        Status         ENUM ('actif','refusé') ,
+        Status         ENUM ('actif','révisé') ,
         Num_Rem        Int NOT NULL ,
         NumClient      Int NOT NULL ,
         Num_taxe       Int NOT NULL

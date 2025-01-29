@@ -10,6 +10,9 @@
   <li class="nav-item">
     <a class="nav-link" href="prets.php">Prêts</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="remboursement.php">Remboursement</a>
+  </li>
   
 </ul>
 </div>

@@ -23,31 +23,17 @@ $taxeStament->execute();
 $taxe = $taxeStament->fetchAll();
 
 
-function randomFloat($min, $max) {
-    return $min + mt_rand() / mt_getrandmax() * ($max - $min);
-}
-
-
-$nombreAleatoire = randomFloat(0, 10); // Génère un nombre réel aléatoire entre 0 et 10
-$nombreAleatoireFormatte = number_format($nombreAleatoire, 2); // Limite les chiffres après la virgule à 2
-
-// foreach($demandes as $demande){
-//     $Montant['Montant'];
-//     $Duree['Duree'];
-//     $NumClient = $demande['NumClient'];
-//     $Montant_mens = $Montant * $nombreAleatoireFormatte / $Duree ;
-//     foreach ($affPrets as $pret) {
-//         if ($NumClient != $pret['NumClient']) {
-//             $queryPret = $mysqlClient->prepare ("INSERT INTO Prets ( Montant, Taux, Duree, Montant_mens, Num_Rem, NumClient, Num_taxe, status) 
-//                 VALUES ( '$Montant', '$nombreAleatoireFormatte' , '$Duree', '$Montant_mens', 3001,'$NumClient' , 4001, 'actif' )");
-//             $queryPret->execute();
-//             echo 'ok';
-//         }
-//     }
-    
-  
-
+// function randomFloat($min, $max) {
+//     return $min + mt_rand() / mt_getrandmax() * ($max - $min);
 // }
+
+
+// $nombreAleatoire = randomFloat(0, 10); // Génère un nombre réel aléatoire entre 0 et 10
+// $nombreAleatoireFormatte = number_format($nombreAleatoire, 2); // Limite les chiffres après la virgule à 2
+
+
+
+
 
 $sqlPrets = $mysqlClient->prepare( 'SELECT 
     p.Num_Prets, 
@@ -73,4 +59,11 @@ JOIN
 ');
 $sqlPrets->execute();
 $affPrets = $sqlPrets->fetchAll();
+
+
+
+
+
+// Requête SQL pour sélectionner tous les enregistrements avec leurs IDs
+
 

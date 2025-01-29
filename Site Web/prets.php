@@ -1,8 +1,5 @@
 <?php 
-    require('requette.php');
-
- 
-    
+    require('requette.php');   
 ?>
 <!DOCTYPE html>
 <html lang="fr">

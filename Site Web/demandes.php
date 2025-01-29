@@ -3,28 +3,33 @@
 <?php
 
 require('requette.php');
-
+require('fonction.php');
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if (isset($_POST['client-id']) && !empty($_POST['client-id']) && isset($_POST['montant']) && !empty($_POST['montant']) && 
         isset($_POST['duree']) && !empty($_POST['duree'])) {
             is_numeric($_POST['client-id']);
             is_numeric($_POST['montant']);
             is_numeric($_POST['duree']);
-          
+            floatval($_POST['montant']);
             $numCli = $_POST['client-id'];
             $montant = $_POST['montant'];
             $duree = $_POST['duree'];
-
+            $date = $_POST['date'];
+            
+            $taux = 4.00;
            foreach ($clients as $client){
             if($client['NumClient'] == $numCli){
-                $isererDeStament = ("INSERT INTO demandesprets( Montant, Duree, NumClient) VALUES ('$montant','$duree','$numCli')");
-                $isererDe = $mysqlClient->prepare($isererDeStament);
-                $isererDe->execute();
+                enregistrerDemande($montant,$duree,$numCli);
+                enregistrerRemboursement($montant,$date);
+                $mensualite = calculerMensualite($montant,$taux,$duree);
+                calculerTaxes($montant, $mensualite,$date);
+                enregistrerPret($montant, $taux, $duree, $mensualite, $client['NumClient']);
             }
            }
            
            
     }
+    
 }
 
 
@@ -71,6 +76,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 type="number"
                                 class="form-control"
                                 name="duree"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="duree">La Date de chaque Remboursement</label>
+                            <input
+                                type="date"
+                                class="form-control"
+                                name="date"
                                 required
                             />
                         </div>
